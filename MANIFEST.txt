@@ -1,5 +1,5 @@
 5297b35c3ad3414b  .gitignore
-4d955ecd1f882120  article.md
+a9c4ca48d94d89a9  article.md
 b138f665a4a45be8  assets/hero.jpg
 14811868aee0da83  bell_pair.py
 c1f833d553d0b2b5  chsh_spread.py

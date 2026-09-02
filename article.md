@@ -162,7 +162,7 @@ The small reference model is in the companion repo: [github.com/masteris777/ques
 
 The wider battery lives in the model repository: [github.com/questforentropy/iceberg-model](https://github.com/questforentropy/iceberg-model) — `python labs/run_exams.py qm`, whose own CHSH row reads 2.8506.
 
-Archived: DOI {ZENODO-DOI}.
+Archived: DOI [10.5281/zenodo.22257549](https://zenodo.org/records/22257549).
 
 ## How this was made
 
