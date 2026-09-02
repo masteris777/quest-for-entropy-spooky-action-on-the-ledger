@@ -1,0 +1,70 @@
+========================================================================
+THE SNIPPET (bell_pair.py) - the article's code, verbatim
+========================================================================
+alice (a = 0 deg)   : +1
+bob   (b = 45 deg)  : -1
+anti-correlated     : True
+settlements concurrent (god view): True
+
+========================================================================
+TEST: the Bell trace (doc steps 1-5)
+========================================================================
+
+Step 1 - birth: one SPAWN record starts two worldlines, opens the wave
+   AUDIT    the SPAWN record IS the wave id, for both particles: ok
+   VISIBLE  4f8962469635 SPAWN signers=['p1', 'p2']
+   HIDDEN (god view)  W(e1) = {members: ['p1', 'p2'], v1, rows: [ +- : +0.707 | -+ : -0.707 ]}
+
+Step 2 - time passes: worldlines grow, the ref rides the records
+   AUDIT    the tick record carries the wave ref forward: ok
+   VISIBLE  particle_1.head=9b47f672e265 (8 ticks)  particle_2.head=804b17330051 (1 ticks)
+   HIDDEN (god view)  W(e1) = {members: ['p1', 'p2'], v10, rows: [ +- : +0.707 | -+ : -0.707 ]}
+
+Step 3 - Alice's touch: settlement at a = 0 deg
+   AUDIT    p1 signed m1, so its ref moved to the new opener m1: ok
+   AUDIT    remote events move NOTHING of p2's - head and ref unchanged: ok
+   VISIBLE  e92706a1559f SETTLEMENT signers=['alice', 'p1'] question=a outcome=+1
+   HIDDEN (god view)  W(e1) residual, still under the old id = {members: ['p2'], v11, rows: [ - : +1.000 ]}
+
+Step 4 - Bob's touch: settlement at b = 45 deg
+   HIDDEN (god view)  p2 in question b: [ +1 : +0.383 | -1 : +0.924 ]  (norms 0.146 / 0.854)
+   AUDIT    p2 signed m2, so its ref moved to m2: ok
+   VISIBLE  71536da18004 SETTLEMENT question=b outcome=-1   (anti-correlated: True)
+
+Step 5 - the audit: concurrency and the missing path (god traversal)
+   AUDIT    m1 and m2 are concurrent - no DAG path either way: ok
+   AUDIT    m1's ancestry holds the birth e1 but NO tick of p2's: ok
+
+========================================================================
+TEST: the seam proof - Bell as dependency injection
+========================================================================
+
+Plug 1: the quantum table - expect the Tsirelson value
+TableWaveMechanics (quantum) / Alice first : E={(0, 45): -0.711, (0, 135): 0.706, (90, 45): -0.715, (90, 135): -0.705}  |S| = 2.8369
+              Bob's marginal P(+) per setting: [0.497, 0.501, 0.5, 0.503]  (flat = no signal)
+   AUDIT    Bob's marginals are flat - no signal in either order: ok
+TableWaveMechanics (quantum) / Bob first   : E={(0, 45): -0.709, (0, 135): 0.706, (90, 45): -0.705, (90, 135): -0.694}  |S| = 2.8146
+              Bob's marginal P(+) per setting: [0.499, 0.503, 0.501, 0.5]  (flat = no signal)
+   AUDIT    Bob's marginals are flat - no signal in either order: ok
+   AUDIT    the shared-wave plug lands in the Tsirelson band [2.70, 2.95]: ok
+   -> the shared-wave mechanics sits at 2*sqrt(2) = 2.8284
+
+Plug 2: the pre-set-answer control - expect Bell's ceiling
+PresetAnswerMechanics (LHV)  / Alice first : E={(0, 45): -0.507, (0, 135): 0.5, (90, 45): -0.512, (90, 135): -0.501}  |S| = 2.0194
+              Bob's marginal P(+) per setting: [0.497, 0.502, 0.499, 0.5]  (flat = no signal)
+   AUDIT    Bob's marginals are flat - no signal in either order: ok
+PresetAnswerMechanics (LHV)  / Bob first   : E={(0, 45): -0.498, (0, 135): 0.507, (90, 45): -0.505, (90, 135): -0.499}  |S| = 2.0097
+              Bob's marginal P(+) per setting: [0.503, 0.504, 0.502, 0.504]  (flat = no signal)
+   AUDIT    Bob's marginals are flat - no signal in either order: ok
+   AUDIT    pre-set answers cap at Bell's ceiling: |S| < 2.10: ok
+   -> design A physics, dead on arrival - and kept on purpose
+
+ALL TESTS PASS
+
+========================================================================
+TEST: the spread of |S| across independent runs
+========================================================================
+   6 independent runs, N=20000 per setting:
+   2.8205  2.8201  2.8032  2.8306  2.8140  2.8219
+   -> mean 2.8184, standard deviation 0.0092  (2*sqrt(2) = 2.8284)
+   -> a couple of hundredths between runs is counting noise, not disagreement
