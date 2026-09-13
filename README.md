@@ -1,5 +1,7 @@
 # Spooky Action on the Ledger
 
+**Article:** [Quest for Entropy #16 — "Spooky Action on the Ledger"](https://questforentropy.substack.com/p/spooky-action-on-the-ledger)
+
 Companion code for *Quest for Entropy #16*. The article ships with it as
 `article.md`.
 
