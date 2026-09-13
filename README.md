@@ -2,6 +2,8 @@
 
 **Article:** [Quest for Entropy #16 — "Spooky Action on the Ledger"](https://questforentropy.substack.com/p/spooky-action-on-the-ledger)
 
+**Series:** ← [#15 No Waves, No Spacetime](https://github.com/masteris777/quest-for-entropy-no-waves-no-spacetime)
+
 Companion code for *Quest for Entropy #16*. The article ships with it as
 `article.md`.
 
