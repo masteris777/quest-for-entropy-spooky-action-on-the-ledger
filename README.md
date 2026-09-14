@@ -1,6 +1,6 @@
 # Spooky Action on the Ledger
 
-**Article:** [Quest for Entropy #16 — "Spooky Action on the Ledger"](https://questforentropy.substack.com/p/spooky-action-on-the-ledger)
+**Article:** [Quest for Entropy #16 — "Spooky Action on the Ledger"](https://questforentropy.com/p/spooky-action-on-the-ledger) · also on [Substack](https://questforentropy.substack.com/p/spooky-action-on-the-ledger)
 
 **Series:** ← [#15 No Waves, No Spacetime](https://github.com/masteris777/quest-for-entropy-no-waves-no-spacetime)
 
